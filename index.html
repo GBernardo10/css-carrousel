@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carousel</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <div class="carousel">
+      <span id="target-item-1"></span>
+      <span id="target-item-2"></span>
+      <span id="target-item-3"></span>
+
+      <div class="carousel-item item-1">
+        <img src="assets/img/missao.png" alt="" />
+        <a class="arrow arrow-prev" href="#target-item-3"></a>
+        <a class="arrow arrow-next" href="#target-item-2"></a>
+      </div>
+
+      <div class="carousel-item item-2">
+        <img src="assets/img/valores.png" alt="" />
+        <a class="arrow arrow-prev" href="#target-item-1"></a>
+        <a class="arrow arrow-next" href="#target-item-3"></a>
+      </div>
+
+      <div class="carousel-item item-3">
+        <img src="assets/img/visao.png" alt="" />
+        <a class="arrow arrow-prev" href="#target-item-2"></a>
+        <a class="arrow arrow-next" href="#target-item-1"></a>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  setInterval(() => {
+    if (
+      window.location.hash === "#target-item-1" ||
+      window.location.hash === "#target-item-3"
+    ) {
+      window.location.hash = "#target-item-1";
+    }
+    setTimeout(() => {
+      if (window.location.hash === "#target-item-1") {
+        window.location.hash = "#target-item-2";
+      }
+      setTimeout(() => {
+        if (window.location.hash === "#target-item-2") {
+          window.location.hash = "#target-item-3";
+        }
+      }, 1500);
+    }, 1000);
+  }, 4000);
+</script>

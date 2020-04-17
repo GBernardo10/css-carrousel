@@ -1,0 +1,66 @@
+.carousel {
+  position: relative;
+  height: 400px;
+  width: 100%;
+}
+.carousel .carousel-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.carousel img {
+  width: 90px;
+  height: 90px;
+}
+
+.carousel .carousel-item .arrow {
+  position: absolute;
+  top: 0;
+  display: block;
+  width: 50px;
+  height: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  background: url("http://haloxp.com/codepen/carousel-arrow-dark.png") 50% 50% /
+    20px no-repeat;
+}
+.carousel .carousel-item .arrow.arrow-prev {
+  left: 0;
+}
+.carousel .carousel-item .arrow.arrow-next {
+  right: 0;
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.carousel .carousel-item.light {
+  color: white;
+}
+.carousel .carousel-item.light .arrow {
+  background: url("http://haloxp.com/codepen/carousel-arrow-light.png") 50% 50% /
+    20px no-repeat;
+}
+.carousel [id^="target-item"] {
+  display: none;
+}
+.carousel .item-1 {
+  z-index: 2;
+  opacity: 1;
+}
+.carousel *:target ~ .item-1 {
+  opacity: 0;
+}
+.carousel #target-item-1:target ~ .item-1 {
+  opacity: 1;
+}
+.carousel #target-item-2:target ~ .item-2,
+.carousel #target-item-3:target ~ .item-3 {
+  z-index: 3;
+  opacity: 1;
+}
